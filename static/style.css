@@ -9,6 +9,8 @@ body{
 }
 .brand{
     font-size: 26px;
+    margin-left: 2%;
+    margin-top: 1%;
 }
 .mainPage{
     margin-top: 10%;
@@ -59,7 +61,7 @@ body{
     top: 18px;
     -webkit-animation: pulsate 1s ease-out;
     -webkit-animation-iteration-count: infinite; 
-    opacity: 0.0
+    opacity: 0.
 }
 @-webkit-keyframes pulsate {
     0% {-webkit-transform: scale(0.1, 0.1); opacity: 0.0;}
@@ -204,16 +206,18 @@ body{
 
   /* css for open social media footer component */
   .footer{
-    position: fixed;
-    left: 6%;
-    bottom: 0px;
-    /* width: 100%; */
     background-color: transparent !important;
   }
-  
+  .mainPage{
+    padding-bottom: 11%;
+  }
   
 @media only screen and (max-width: 600px) {
     .QueryForm{
         margin-left: 5%;
     }
+    .brand{
+      font-size: 18px;
+      margin-left: 0px;
   }
+}

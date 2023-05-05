@@ -1,88 +1,47 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Real-Time Action Detection</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/style.css" />
-    <script src="/static/style.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
-</head>
-
-<body>
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <header>
-        <!-- place navbar here -->
-        {% include 'navbar.html' %}
-    </header>
-
-    <main>
-        <h1 class="text-center">Welcome {{ user }} <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
-                fill="currentColor" class="bi bi-person-lock" viewBox="0 0 16 16">
-                <path
-                    d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 5.996V14H3s-1 0-1-1 1-4 6-4c.564 0 1.077.038 1.544.107a4.524 4.524 0 0 0-.803.918A10.46 10.46 0 0 0 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h5ZM9 13a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z" />
-            </svg></h1>
-        <div class="container p-4 bg-dark my-4">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1 class="mb-4 text-center">Detect in a Video file</h1>
-                    <div class="file-upload ">
-                        <div class="image-upload-wrap">
-                            <input class="file-upload-input" type='file' onchange="readVideoURL(this);"
-                                accept="video/*" />
-                            <div class="drag-text">
-                                <h3>Drag and drop a file or select to add Video</h3>
-                            </div>
-                        </div>
-                        <div class="file-upload-content">
-                            <video class="file-upload-image" src="#" autoplay controls></video>
-                            <div class="image-title-wrap">
-                                <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
-                                        class="image-title">Uploaded Image</span></button>
-                            </div>
-                        </div>
-                        <button class="file-upload-btn mt-3" type="button"
-                            onclick="$('.file-upload-input').trigger( 'click' )">Select Video
-                        </button>
+{% extends "base.html" %}
+{% block content %}
+<h1 class="text-center">Welcome {{ user }} <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
+        fill="currentColor" class="bi bi-person-lock" viewBox="0 0 16 16">
+        <path
+            d="M11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 5.996V14H3s-1 0-1-1 1-4 6-4c.564 0 1.077.038 1.544.107a4.524 4.524 0 0 0-.803.918A10.46 10.46 0 0 0 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h5ZM9 13a1 1 0 0 1 1-1v-1a2 2 0 1 1 4 0v1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-2Zm3-3a1 1 0 0 0-1 1v1h2v-1a1 1 0 0 0-1-1Z" />
+    </svg></h1>
+<div class="container p-4 bg-dark my-4">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1 class="mb-4 text-center">Detect in a Video file</h1>
+            <div class="file-upload ">
+                <div class="image-upload-wrap">
+                    <input class="file-upload-input" type='file' onchange="readVideoURL(this);" accept="video/*" />
+                    <div class="drag-text">
+                        <h3>Drag and drop a file or select to add Video</h3>
                     </div>
                 </div>
-                <div class="col-sm-6 border-start">
-                    <h1 class="mb-4 text-center">Start Detection at Real time</h1>
-                    <button class="OpenCamera" id="openCameraButton">Open Camera</button>
-                    <video id="videoElement"></video>
+                <div class="file-upload-content">
+                    <video class="file-upload-image" src="#" autoplay controls></video>
+                    <div class="image-title-wrap">
+                        <button type="button" onclick="removeUpload()" class="remove-image">Remove <span
+                                class="image-title">Uploaded Image</span></button>
+                    </div>
                 </div>
+                <button class="file-upload-btn mt-3" type="button"
+                    onclick="$('.file-upload-input').trigger( 'click' )">Select Video
+                </button>
             </div>
         </div>
-        <div class="text-center">
-            <button type="button" class="btn btn-danger">Log out <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                    height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
-                    <path fill-rule="evenodd"
-                        d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
-                </svg></button>
+        <div class="col-sm-6 border-start">
+            <h1 class="mb-4 text-center">Start Detection at Real time</h1>
+            <button class="OpenCamera" id="openCameraButton">Open Camera</button>
+            <video id="videoElement"></video>
         </div>
-    </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-        </script>
-</body>
-
-</html>
+    </div>
+</div>
+<div class="text-center">
+    <button type="button" class="btn btn-danger">Log out <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+            fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0v-2z" />
+            <path fill-rule="evenodd"
+                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+        </svg></button>
+</div>
+{% endblock %}

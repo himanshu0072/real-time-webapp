@@ -1,136 +1,34 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <title>Real-Time Action Detection</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS v5.2.1 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/static/style.css" />
-
-</head>
-
-<body>
-    <header>
-        <!-- place navbar here -->
-        {% include 'navbar.html' %}
-    </header>
-
-    <main>
-        <nav>
-            <div class="container col-md-5 nav nav-tabs bg-dark nav-justified mt-5 mb-4 LoginForm" id="nav-tab"
-                role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
-                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">Login</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Signup</button>
-            </div>
-        </nav>
-        <div class=" container tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                <div class="container my-2">
-                    <div class="row my-2">
-                        <div class="col-md-6 mx-auto card bg-dark">
-                            <div class="card-body bg-dark">
-                                <form method="POST" enctype="multipart/form-data" class="bg-dark"
-                                    action="{{ url_for('login') }}">
-                                    <div class="text-center">
-                                        <h1 class="my-4 mt-1">Welcome Back</h1>
-                                    </div>
-                                    <div class="msg">{{ msg }}</div>
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" name="email" id="name"
-                                            placeholder="Enter Your Email" />
-                                        <label for="email" class="text-dark">Email</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-
-                                        <input type="password" class="form-control" name="password" id="password"
-                                            placeholder="Enter Your Password">
-                                        <label for="password" class="form-label text-dark">Password</label>
-                                    </div>
-                                    <p class="my-2 text-muted">Don't Have a account ? Click on signup tab Above.</p>
-
-                                    <div class="my-3 text-center">
-                                        <button type="submit" class="btn btn-danger ">Login</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+{% extends "base.html" %}
+{% block content %}
+<div class="container my-2">
+    <div class="row my-2">
+        <div class="col-md-6 mx-auto card bg-dark">
+            <div class="card-body bg-dark">
+                <form method="POST" enctype="multipart/form-data" class="bg-dark" action="{{ url_for('login') }}">
+                    <div class="text-center">
+                        <h1 class="my-4 mt-1">Welcome Back</h1>
                     </div>
-                </div>
-            </div>
-            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                <div class="container my-2 ">
-                    <div class="row my-2">
-                        <div class="col-md-6 mx-auto card bg-dark">
-                            <div class="card-body bg-dark">
-                                <form method="POST" enctype="multipart/form-data" class="bg-dark"
-                                    action="{{ url_for('login') }}">
-                                    <div class="text-center">
-                                        <h1 class="my-3 mt-1">Create your account</h1>
-                                    </div>
-                                    <div class="msg">{{ msg }}</div>
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" name="name" id="name"
-                                            placeholder="Enter Your Name" />
-                                        <label for="name" class="text-dark">Name</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" name="email" id="name"
-                                            placeholder="Enter Your Email" />
-                                        <label for="email" class="text-dark">Email</label>
-                                    </div>
-                                    <div class="form-floating mb-3">
-                                        <input type="password" class="form-control" name="password" id="password"
-                                            placeholder="Enter Your Password">
-                                        <label for="password" class="form-label text-dark">Password</label>
-                                    </div>
-                                    <div class="mb-0">
-                                        <label for="gender" class="form-label">Gender</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="female"
-                                            value="female" />
-                                        <label class="form-check-label" for="female">Female</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="male"
-                                            value="male" />
-                                        <label class="form-check-label" for="male">male</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="gender" id="other"
-                                            value="other" />
-                                        <label class="form-check-label" for="">other</label>
-                                    </div>
-                                    <p class="my-2 text-muted">Already Having a account ? Click on login tab Above.</p>
-                                    <div class="my-3">
-                                        <button type="submit" class="btn btn-danger">Register</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
+                    <div class="msg">{{ msg }}</div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" name="email" id="name"
+                            placeholder="Enter Your Email" />
+                        <label for="email" class="text-dark">Email</label>
                     </div>
-                </div>
+                    <div class="form-floating mb-3">
+
+                        <input type="password" class="form-control" name="password" id="password"
+                            placeholder="Enter Your Password">
+                        <label for="password" class="form-label text-dark">Password</label>
+                    </div>
+                    <p class="my-2 text-muted">Don't Have a account ? <a href="/register">Signup Here</a>.</p>
+
+                    <div class="my-3 text-center">
+                        <button type="submit" class="btn btn-danger ">Login</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-        </script>
+    </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-        </script>
-</body>
-
-</html>
+{% endblock %}

@@ -44,7 +44,12 @@ def login():
             return render_template('test.html', msg=msg, user=user)
         else:
             msg = 'Incorrect email / password !'
+    return render_template('login.html', msg=msg)
 
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    msgg = ''
     if request.method == 'POST' and 'name' in request.form and 'email' in request.form and 'password' in request.form and 'gender' in request.form:
         name = request.form['name']
         password = request.form['password']
@@ -66,10 +71,10 @@ def login():
             cursor.execute(
                 'INSERT INTO users VALUES (NULL, % s, % s, % s, % s)', (name, email, password, gender))
             mysql.connection.commit()
-            msg = 'You have successfully registered !'
+            msgg = 'You have successfully registered !'
     elif request.method == 'POST':
-        msg = 'Invalid data !'
-    return render_template('login.html', msg=msg)
+        msgg = 'Invalid data !'
+    return render_template('register.html', msgg=msgg)
 
 
 @app.route('/whyus')
