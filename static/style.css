@@ -213,11 +213,53 @@ body{
   }
   
 @media only screen and (max-width: 600px) {
-    .QueryForm{
-        margin-left: 5%;
+  /* css for small screen navbar */
+    .navbar{
+      margin-right: 5% !important;
+    }
+    .NavItems{
+      padding-left: 8% !important;
     }
     .brand{
       font-size: 18px;
       margin-left: 0px;
-  }
+    }
+    /* css for home page */
+    .mainPage{
+      margin: 10px !important;
+    }
+    .mainPage h1{
+      margin-top: 20% !important;
+      font-size: 5vh;
+    }
+    .mainPage p{
+      margin-top: 5% !important;
+      font-size: 16px;
+    }
+    .mainPage a{
+      margin-top: 5% !important;
+      margin-bottom: 35% !important;
+    }
+
+    /* css for support page  */
+    .QueryForm{
+        margin-left: 5%;
+    }
+    
+    /* css for support page border */
+    .ContactDetailSection{
+      margin-top: 10%; 
+      border-left: none !important;
+      border-top: 3px solid white;
+      padding-top: 5%;
+    }
+    /* css for user dashbord page open camera section */
+    .OpenCameraSection{
+      margin-top: 10%; 
+      border-left: none !important;
+      border-top: 3px solid white;
+      padding-top: 5%;
+      
+    }
+
 }
