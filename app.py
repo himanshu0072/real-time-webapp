@@ -100,6 +100,29 @@ def support():
     return render_template('support.html', msg=msg)
 
 
+@app.route('/admin', methods=['GET', 'POST'])
+def admin():
+    msgs = ''
+    user = ''
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        email = request.form['email']
+        password = request.form['password']
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute(
+            'SELECT * FROM admin WHERE email = % s AND password = % s', (email, password, ))
+        account = cursor.fetchone()
+        if account:
+            session['loggedin'] = True
+            session['name'] = account['name']
+            session['email'] = account['email']
+            msgs = 'Logged in successfully !'
+            user = session['name']
+            return render_template('AdminDashBoard.html', msgs=msgs, user=user)
+        else:
+            msgs = 'Incorrect email / password !'
+    return render_template('admin.html', msgs=msgs)
+
+
 @app.route('/test')
 def test():
     return render_template('test.html')
