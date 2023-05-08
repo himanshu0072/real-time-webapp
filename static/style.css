@@ -261,5 +261,25 @@ body{
       padding-top: 5%;
       
     }
+    .UserHeading{
+      margin-top: 10% !important;
+    }
+    .UserLogout{
+      margin-left: 10px;
+    }
+    .OpenCameraSection{
+      height: 150px;
+    }
+    /* css for login page */
+    .LoginSection{
+      margin-top: 15% !important;
+      margin-bottom: 15% !important;
+    }
+    /* css for registerpage */
+    .RegisterSection{
+      margin-top: 15% !important;
+      margin-bottom: 15% !important;
+    }
+    
 
 }
