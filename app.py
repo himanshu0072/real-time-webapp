@@ -129,14 +129,27 @@ def adminDashboard():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM users')
         users = cursor.fetchall()
-        session.pop('loggedin', default=None)
         return render_template("AdminDashboard.html", users=users)
     return redirect(url_for('admin'))
 
 
 @app.route('/test')
 def test():
-    return render_template('test.html')
+    if 'loggedin' in session:
+        return render_template('test.html')
+    return render_template('login.html')
+
+
+@app.route('/logout')
+def logout():
+    session.pop('loggedin', default=None)
+    return redirect(url_for('login'))
+
+
+@app.route('/adminlogout')
+def adminlogout():
+    session.pop('loggedin', default=None)
+    return redirect(url_for('admin'))
 
 
 if __name__ == '__main__':
