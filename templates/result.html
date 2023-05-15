@@ -2,12 +2,25 @@
 {% block content %}
 
 <div class="container bg-dark py-4">
-    <h2 class="text-center ">Preview- Result</h2>
-    <video width="320" height="240" controls>
-        <source src="/static/mov_bbb.mp4" type="video/mp4">
-        <source src="/static/mov_bbb.mp4" type="video/ogg">
-        Your browser does not support the video tag.
-    </video>
+    <h2 class="text-center border border-success rounded-0">Preview- Result</h2>
+    <div class="row text-center mt-3">
+        <div class="col-sm">
+            <h2 class="text-center">Original Video</h2>
+            <video width="320" height="240" controls>
+                <source src="/static/mov_bbb.mp4" type="video/mp4">
+                <source src="/static/mov_bbb.mp4" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="col-sm text-center border-left">
+            <h2 class="text-center">Detectetd Video</h2>
+            <video width="320" height="240" controls>
+                <source src="/static/mov_bbb.mp4" type="video/mp4">
+                <source src="/static/mov_bbb.mp4" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
 </div>
 
 {% endblock%}
