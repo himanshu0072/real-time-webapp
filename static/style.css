@@ -35,6 +35,14 @@ body{
 .form-control{
     height: 10px;
 }
+/* Css for second section */
+.SecondSection{
+  display: flex;
+  background-color: rgb(0, 111, 130);
+}
+.TextArea{
+  margin-left: 5%;
+}
 
 /* css for green dot */
 .ring-container {
