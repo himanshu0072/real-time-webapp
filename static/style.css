@@ -35,6 +35,14 @@ body{
 .form-control{
     height: 10px;
 }
+.WhyusImage{
+  padding-top: 10%;
+  
+}
+.WhyusImage img{
+  border: 5px solid white;
+
+}
 /* Css for second section */
 .SecondSection{
   display: flex;
@@ -307,6 +315,13 @@ body{
       margin-top: 15% !important;
       margin-bottom: 15% !important;
     }
+    .WhyusContainer{
+      display: block !important;
+    }
+    .WhyusImage img{
+      width: 90%;
+      margin-left: 5%;
     
+    }
 
 }
