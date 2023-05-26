@@ -3,9 +3,12 @@
 {% block content %}
 
 <div class="container my-2 mt-5 RegisterSection">
-    <div class="row my-2">
-        <div class="col-md-6 mx-auto card bg-dark">
-            <div class="card-body bg-dark">
+    <div class="row">
+        <div class="col-md-6 bg-dark pt-3 pb-3">
+            <img src="/static/images/signup.png" alt="Register Now" style="width: 100%;">
+        </div>
+        <div class="col-md-6 bg-dark">
+            <div class="card-body">
                 <form method="POST" enctype="multipart/form-data" class="bg-dark" action="{{ url_for('register') }}">
                     <div class="text-center">
                         <h1 class="my-3 mt-1">Create your account</h1>

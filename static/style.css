@@ -3,6 +3,7 @@ body{
     background-size: 250vh;
     background-repeat: no-repeat;
     color: white;
+    font-family: sans-serif;
 }
 .navbar{
     font-size: 16px;
