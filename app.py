@@ -1,14 +1,15 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, g, url_for
 from werkzeug .utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
+import os
 
 app = Flask(__name__)
 
-app.secret_key = 'yoursecretkey'
+app.secret_key = os.urandom(24)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -135,9 +136,9 @@ def adminDashboard():
 
 @app.route('/test')
 def test():
-    if 'loggedin' in session:
-        return render_template('test.html')
-    return render_template('login.html')
+    # if 'loggedin' in session:
+    #     return render_template('test.html')
+    return render_template('test.html')
 
 
 @app.route('/logout')
