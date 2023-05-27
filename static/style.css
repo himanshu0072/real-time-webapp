@@ -215,11 +215,10 @@ body{
     outline: none;
     text-transform: uppercase;
     font-weight: 700;
-    margin-left: 30%;
   }
-
-  .msg{
-    padding: 2%;
+  .startDetection:hover{
+    text-decoration: none;
+    color: white;
   }
 
   /* css for open social media footer component */

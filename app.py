@@ -27,9 +27,10 @@ def login():
         if user:
             if password == user.password:
                 session['logged_in'] = True
+                user_name = user.name
                 flash('Login successful!', 'success')
                 # Perform the necessary actions after successful login
-                return redirect('/test')
+                return render_template('test.html', user_name = user_name)
             else:
                 flash('Invalid email or password', 'danger')
         else:
