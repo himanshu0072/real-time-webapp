@@ -3,8 +3,13 @@
 check once👉<a href="https://www.linkedin.com/in/himanshu-prajapati-331586207/" target="_blanck">www.realtimeactiondetection.com</a>
 
 #### See Example :- 
+<div>
+  <img src='/static/examples/ava1.gif'>&nbsp; &nbsp; &nbsp;&nbsp;
+  <img src='/static/examples/ava3.gif'>&nbsp; &nbsp; &nbsp;&nbsp;
+  <img src='/static/examples/ava4.gif'>
+</div>
 
-#### What we have used :-
+## What we have used :-
 <ol>
   <li><b>Flask, HTML, CSS, JS, BOOTSTRAP, Animated CSS</b> - For Frontend design</li>
   <li><b>SQLite, SQLAlchemy</b> - For database</li>
